@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.derekabdine</groupId>
+   <artifactId>kibana-jetty</artifactId>
+   <packaging>war</packaging>
+   <version>1.0-SNAPSHOT</version>
+   <name>kibana-jetty Maven Webapp</name>
+   <url>https://github.com/dabdine/kibana-jetty</url>
+
+   <properties>
+      <kibana.version>3.1.1</kibana.version>
+      <elasticsearch.location>http://localhost:9200</elasticsearch.location>
+   </properties>
+
+   <build>
+      <finalName>kibana</finalName>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+               <webResources>
+                  <resource>
+                     <directory>src/main/resources-filtered</directory>
+                     <filtering>true</filtering>
+                     <includes>
+                        <include>config.js</include>
+                     </includes>
+                  </resource>
+               </webResources>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <groupId>com.googlecode.maven-download-plugin</groupId>
+            <artifactId>maven-download-plugin</artifactId>
+            <version>1.1.0</version>
+            <executions>
+               <execution>
+                  <id>download-unpack-kibana</id>
+                  <phase>generate-resources</phase>
+                  <goals>
+                     <goal>wget</goal>
+                  </goals>
+                  <configuration>
+                     <url>http://download.elasticsearch.org/kibana/kibana/kibana-${kibana.version}.zip</url>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+               <execution>
+                  <id>prepare</id>
+                  <phase>process-resources</phase>
+                  <configuration>
+                     <tasks>
+                        <unzip src="${project.build.directory}/kibana-${kibana.version}.zip" dest="${project.build.directory}/${project.build.finalName}">
+                           <mapper>
+                              <globmapper from="kibana-${kibana.version}/*" to="*" />
+                           </mapper>
+                        </unzip>
+                     </tasks>
+                  </configuration>
+                  <goals>
+                     <goal>run</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <configuration>
+               <container>
+                  <containerId>jetty7x</containerId>
+                  <type>embedded</type>
+               </container>
+            </configuration>
+         </plugin>
+      </plugins>
+      <pluginManagement>
+         <plugins>
+            <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
+               build itself. -->
+            <plugin>
+               <groupId>org.eclipse.m2e</groupId>
+               <artifactId>lifecycle-mapping</artifactId>
+               <version>1.0.0</version>
+               <configuration>
+                  <lifecycleMappingMetadata>
+                     <pluginExecutions>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>com.googlecode.maven-download-plugin</groupId>
+                              <artifactId>maven-download-plugin</artifactId>
+                              <versionRange>[1.1.0,)</versionRange>
+                              <goals>
+                                 <goal>wget</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <ignore></ignore>
+                           </action>
+                        </pluginExecution>
+                        <pluginExecution>
+                           <pluginExecutionFilter>
+                              <groupId>org.apache.maven.plugins</groupId>
+                              <artifactId>maven-antrun-plugin</artifactId>
+                              <versionRange>[1.6,)</versionRange>
+                              <goals>
+                                 <goal>run</goal>
+                              </goals>
+                           </pluginExecutionFilter>
+                           <action>
+                              <ignore></ignore>
+                           </action>
+                        </pluginExecution>
+                     </pluginExecutions>
+                  </lifecycleMappingMetadata>
+               </configuration>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+</project>
