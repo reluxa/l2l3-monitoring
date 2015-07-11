@@ -1,12 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.derekabdine</groupId>
-    <artifactId>kibana-jetty</artifactId>
+    <groupId>com.l2l3.monitoring</groupId>
+    <artifactId>ek.test.instance</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>kibana-jetty Maven Webapp</name>
-    <url>https://github.com/dabdine/kibana-jetty</url>
+    <name>EK test instance</name>
 
     <properties>
         <kibana.version>3.1.1</kibana.version>
@@ -124,17 +123,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!--         <plugin>
-                        <groupId>org.codehaus.cargo</groupId>
-                        <artifactId>cargo-maven2-plugin</artifactId>
-                        <configuration>
-                           <container>
-                              <containerId>jetty7x</containerId>
-                              <type>embedded</type>
-                           </container>
-                        </configuration>
-                     </plugin> -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
