@@ -1,2 +1,2 @@
 @echo off
-mvn clean install cargo:run
+mvn -q clean install jetty:run-war

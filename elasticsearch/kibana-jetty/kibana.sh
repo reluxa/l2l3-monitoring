@@ -1,2 +1,2 @@
 #!/bin/bash
-mvn clean package cargo:run -q
+mvn -q clean install jetty:run-war
