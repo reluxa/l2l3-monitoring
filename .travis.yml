@@ -3,7 +3,6 @@ jdk:
   oraclejdk8
 script:
   - mvn clean install -f monitoring-api/pom.xml
-script:
   - mvn clean install -f monitoring/pom.xml
 notifications:
   email: false
