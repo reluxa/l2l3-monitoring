@@ -1,6 +1,6 @@
-package com.l2l3monitoring.monitoring.model;
+package com.l2l3.monitoring.model;
 
-import static com.l2l3monitoring.monitoring.model.util.MonitoringDataTestUtil.createSampleModel;
+import static com.l2l3.monitoring.model.util.MonitoringDataTestUtil.createSampleModel;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 

@@ -1,10 +1,10 @@
-package com.l2l3monitoring.monitoring.model.util;
+package com.l2l3.monitoring.model.util;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import com.l2l3monitoring.monitoring.model.MonitoringData;
+import com.l2l3.monitoring.model.MonitoringData;
 
 public final class MonitoringDataTestUtil {
 

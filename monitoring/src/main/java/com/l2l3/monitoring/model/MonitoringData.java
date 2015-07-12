@@ -1,4 +1,4 @@
-package com.l2l3monitoring.monitoring.model;
+package com.l2l3.monitoring.model;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

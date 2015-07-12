@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
  
-	<logger name="com.l2l3monitoring" level="debug"	additivity="false">
+	<logger name="com.l2l3" level="debug"	additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 	

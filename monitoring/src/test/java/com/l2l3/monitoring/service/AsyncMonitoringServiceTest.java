@@ -1,6 +1,6 @@
-package com.l2l3monitoring.monitoring.service;
+package com.l2l3.monitoring.service;
 
-import static com.l2l3monitoring.monitoring.model.util.MonitoringDataTestUtil.createSampleModel;
+import static com.l2l3.monitoring.model.util.MonitoringDataTestUtil.createSampleModel;
 
 import org.junit.Before;
 import org.junit.Test;
