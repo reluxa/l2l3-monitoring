@@ -18,7 +18,7 @@ public class MonitoringData {
 
     public final ImmutableMap<String, Object> parameters;
 
-    public final Object returnValue;
+    public final Optional<Object> returnValue;
 
     public final Optional<Throwable> exception;
 
@@ -63,7 +63,7 @@ public class MonitoringData {
 
 	private ImmutableMap.Builder<String, Object> parameters = ImmutableMap.builder();
 
-	private Object returnValue;
+	private Optional<Object> returnValue = Optional.empty();
 
 	private Optional<Throwable> exception = Optional.empty();
 
@@ -90,7 +90,7 @@ public class MonitoringData {
 	}
 
 	public Builder withReturnValue(Object returnValue) {
-	    this.returnValue = returnValue;
+	    this.returnValue = Optional.ofNullable(returnValue);
 	    return this;
 	}
 

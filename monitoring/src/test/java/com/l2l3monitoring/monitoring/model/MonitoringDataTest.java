@@ -26,7 +26,7 @@ public class MonitoringDataTest {
 	assertThat(monitoringData.clazz.getSimpleName(), is("Object"));
 	assertThat(monitoringData.methodName, is("calculateSomething"));
 	assertThat(monitoringData.parameters.get("value"), is(BigDecimal.ONE));
-	assertThat(monitoringData.returnValue, is("Hello World!"));
+	assertThat(monitoringData.returnValue.get(), is("Hello World!"));
 	assertThat(monitoringData.exception.get(), instanceOf(RuntimeException.class));
 	assertThat(monitoringData.executionTime.getSeconds(), is(Long.valueOf(60)));
 	assertThat(monitoringData.timestamp.toString(), is("2015-07-10T21:34"));
