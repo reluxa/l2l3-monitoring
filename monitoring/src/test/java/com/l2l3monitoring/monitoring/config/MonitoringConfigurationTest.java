@@ -9,6 +9,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.l2l3monitoring.monitoring.service.MonitoringService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = MonitoringConfiguration.class)
 public class MonitoringConfigurationTest {
@@ -16,9 +18,13 @@ public class MonitoringConfigurationTest {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    private MonitoringService monitoringService;
+
     @Test
     public void applicationContextIsReady() {
 	assertNotNull(applicationContext);
+	assertNotNull(monitoringService);
     }
 
 }
