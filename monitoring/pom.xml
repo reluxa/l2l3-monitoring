@@ -11,13 +11,18 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring.version>4.1.7.RELEASE</spring.version>
+		<jackson.version>2.5.4</jackson.version>
+		<httpcomponents.version>4.5</httpcomponents.version>
+		<apache.commons.httpclient.version>3.1</apache.commons.httpclient.version>
 		<guava.version>18.0</guava.version>
 		<apache.commons.lang.version>3.4</apache.commons.lang.version>
+		<apache.commons.io.version>2.4</apache.commons.io.version>
 		<logback.version>1.1.1</logback.version>
 		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<hamcrest.version>2.0.0.0</hamcrest.version>
+		<es.version>1.6.0</es.version>
 	</properties>
 
 	<dependencies>
@@ -35,9 +40,38 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- HTTP Utils -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpcomponents.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${apache.commons.httpclient.version}</version>
 		</dependency>
 
 		<!-- Utils -->
@@ -50,6 +84,11 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${apache.commons.lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${apache.commons.io.version}</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -83,6 +122,13 @@
 			<version>${mockito.version}</version>
 		</dependency>
 
+		<!-- ES -->
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>${es.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
