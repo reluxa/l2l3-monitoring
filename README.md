@@ -1,5 +1,7 @@
 # l2l3-monitoring
 
+![build status](https://travis-ci.org/reluxa/l2l3-monitoring.svg?branch=master)
+
 A reusable Monitoring Library with AOP
 
 An easily integrable, but configurable solution to monitor application's beans with an @Monitoring annotation.
