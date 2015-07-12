@@ -2,8 +2,8 @@ language: java
 jdk:
   oraclejdk8
 script:
-  clean install -f monitoring-api/pom.xml
-  clean install -f monitoring/pom.xml
-  clean install -f elasticsearch/pom.xml
+  -mvn clean install -f monitoring-api/pom.xml
+  -mvn clean install -f monitoring/pom.xml
+  -mvn clean install -f elasticsearch/pom.xml
 notifications:
   email: false
