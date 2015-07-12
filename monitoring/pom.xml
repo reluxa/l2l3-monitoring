@@ -12,15 +12,16 @@
 		<java.version>1.8</java.version>
 		<spring.version>4.1.7.RELEASE</spring.version>
 		<guava.version>18.0</guava.version>
-		<junit.version>4.12</junit.version>
-		<hamcrest.version>2.0.0.0</hamcrest.version>
 		<apache.commons.lang.version>3.4</apache.commons.lang.version>
 		<logback.version>1.1.1</logback.version>
 		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
+		<junit.version>4.12</junit.version>
 		<mockito.version>1.9.5</mockito.version>
+		<hamcrest.version>2.0.0.0</hamcrest.version>
 	</properties>
 
 	<dependencies>
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -38,6 +39,8 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Utils -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
@@ -49,6 +52,7 @@
 			<version>${apache.commons.lang.version}</version>
 		</dependency>
 
+		<!-- Logging -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -60,6 +64,7 @@
 			<version>${jcloverslf4j.version}</version>
 		</dependency>
 
+		<!-- Tests -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
