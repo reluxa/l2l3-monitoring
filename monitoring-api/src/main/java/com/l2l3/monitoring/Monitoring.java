@@ -1,4 +1,4 @@
-package com.l2l3monitoring.monitoring;
+package com.l2l3.monitoring;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

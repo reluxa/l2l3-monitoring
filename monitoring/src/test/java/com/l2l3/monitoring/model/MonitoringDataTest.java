@@ -1,11 +1,10 @@
-package com.l2l3monitoring.monitoring.model;
+package com.l2l3.monitoring.model;
 
+import static com.l2l3.monitoring.model.util.MonitoringDataTestUtil.createSampleModel;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.math.BigDecimal;
-import java.time.Duration;
-import java.time.LocalDateTime;
 
 import org.junit.Test;
 
@@ -13,15 +12,8 @@ public class MonitoringDataTest {
 
     @Test
     public void dataIsCreatedProperly() {
-	MonitoringData monitoringData = MonitoringData.builder()
-		.withClass(Object.class)
-		.withMethodName("calculateSomething")
-		.addParameter("value", BigDecimal.ONE)
-		.withReturnValue("Hello World!")
-		.withExecutionTime(Duration.ofSeconds(60))
-		.withTimestamp(LocalDateTime.of(2015, 7, 10, 21, 34))
-		.build();
-	assertThat(monitoringData.clazz.getSimpleName(), is("Object"));
+	MonitoringData monitoringData = createSampleModel();
+	assertThat(monitoringData.clazz.getSimpleName(), is(Object.class.getSimpleName()));
 	assertThat(monitoringData.methodName, is("calculateSomething"));
 	assertThat(monitoringData.parameters.get("value"), is(BigDecimal.ONE));
 	assertThat(monitoringData.returnValue.get(), is("Hello World!"));
