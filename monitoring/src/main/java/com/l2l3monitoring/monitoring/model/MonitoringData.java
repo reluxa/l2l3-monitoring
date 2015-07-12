@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -34,6 +35,20 @@ public class MonitoringData {
 	this.exception = builder.exception;
 	this.executionTime = builder.executionTime;
 	this.timestamp = builder.timestamp;
+
+	validate();
+    }
+
+    private void validate() {
+	Validate.notNull(clazz, "clazz cannot be null");
+	Validate.notNull(methodName, "methodName cannot be null");
+	Validate.notNull(parameters, "parameters cannot be null");
+	Validate.notNull(returnValue, "returnValue cannot be null");
+	Validate.notNull(exception, "exception cannot be null");
+	Validate.notNull(executionTime, "executionTime cannot be null");
+	Validate.notNull(timestamp, "timestamp cannot be null");
+	Validate.isTrue(returnValue.isPresent() ^ exception.isPresent(),
+		"Either a return value or exception must be present");
     }
 
     @Override
