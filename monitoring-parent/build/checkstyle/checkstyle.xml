@@ -26,5 +26,24 @@
     <module name="SimplifyBooleanReturn"/>
     <module name="SimplifyBooleanExpression"/>
     <module name="UnnecessaryParentheses"/>
+    <module name="GenericWhitespace"/>
+    <module name="EmptyLineSeparator"/>
+    <module name="SeparatorWrap">
+      <property name="option" value="nl"/>
+      <property name="tokens" value="DOT"/>
+    </module>
+    <module name="Indentation"/>
+    <module name="MethodParamPad"/>
+    <module name="SeparatorWrap">
+      <property name="tokens" value="COMMA"/>
+    </module>
+    <module name="FinalClass"/>
+    <module name="InnerTypeLast"/>
+    <module name="InterfaceIsType"/>
+    <module name="MutableException"/>
+    <module name="OneTopLevelClass"/>
+    <module name="EmptyBlock"/>
+    <module name="EmptyCatchBlock"/>
+    <module name="NeedBraces"/>
   </module>
 </module>
