@@ -172,6 +172,30 @@
 						</execution>
 					</executions>
 				</plugin>
+
+				<plugin>
+					<groupId>org.pitest</groupId>
+					<artifactId>pitest-maven</artifactId>
+					<version>1.1.5</version>
+					<configuration>
+						<targetClasses>
+							<param>com.l2l3.monitoring.*</param>
+						</targetClasses>
+						<targetTests>
+							<param>com.l2l3.monitoring.*</param>
+						</targetTests>
+						<coverageThreshold>85</coverageThreshold>
+						<mutationThreshold>60</mutationThreshold>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>verify</phase>
+							<goals>
+								<goal>mutationCoverage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
