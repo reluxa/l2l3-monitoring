@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import com.google.common.collect.ImmutableMap;
 
-public class MonitoringData {
+public final class MonitoringData {
 
     public final Class<?> clazz;
 
@@ -70,7 +70,7 @@ public class MonitoringData {
 	return new Builder();
     }
 
-    public static class Builder {
+    public final static class Builder {
 
 	private Class<?> clazz;
 
