@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import com.google.common.collect.ImmutableMap;
 
-public class MonitoringData {
+public final class MonitoringData {
 
     public final Class<?> clazz;
 
@@ -47,8 +47,7 @@ public class MonitoringData {
 	Validate.notNull(exception, "exception cannot be null");
 	Validate.notNull(executionTime, "executionTime cannot be null");
 	Validate.notNull(timestamp, "timestamp cannot be null");
-	Validate.isTrue(returnValue.isPresent() ^ exception.isPresent(),
-		"Either a return value or exception must be present");
+	Validate.isTrue(returnValue.isPresent() ^ exception.isPresent(), "Either a return value or exception must be present");
     }
 
     @Override
@@ -70,7 +69,7 @@ public class MonitoringData {
 	return new Builder();
     }
 
-    public static class Builder {
+    public final static class Builder {
 
 	private Class<?> clazz;
 
