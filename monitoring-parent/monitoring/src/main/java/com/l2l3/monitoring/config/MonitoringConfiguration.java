@@ -29,7 +29,7 @@ public class MonitoringConfiguration {
     }
 
     public String elasticsearchClusterUrl() {
-	return environment.getProperty("es.cluster.url");
+	return environment.getRequiredProperty("es.cluster.url");
     }
 
     @Bean

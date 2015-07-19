@@ -21,7 +21,7 @@ public class AsyncMonitoringService implements MonitoringService {
     @Override
     @Async
     public void processMonitoringData(MonitoringData data) {
-	LOGGER.info("Process monitoring data asynchronously: {}", data);
+	LOGGER.debug("Process monitoring data asynchronously: {}", data);
 	Validate.notNull(data, "Data cannot be null");
 	repository.save(data);
     }

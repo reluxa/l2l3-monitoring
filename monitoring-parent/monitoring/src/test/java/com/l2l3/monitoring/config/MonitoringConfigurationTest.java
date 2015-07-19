@@ -13,7 +13,7 @@ import com.l2l3.monitoring.repository.MonitoringRepository;
 import com.l2l3.monitoring.service.MonitoringService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = MonitoringConfiguration.class)
+@ContextConfiguration(classes = TestMonitoringConfiguration.class)
 public class MonitoringConfigurationTest {
 
     @Autowired
