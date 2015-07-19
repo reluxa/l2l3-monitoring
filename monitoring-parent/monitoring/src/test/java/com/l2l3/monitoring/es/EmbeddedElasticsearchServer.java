@@ -16,6 +16,7 @@ public class EmbeddedElasticsearchServer {
     private static final String DEFAULT_DATA_DIRECTORY = "target/montioring-data";
 
     private final Node node;
+
     private final String dataDirectory;
 
     public EmbeddedElasticsearchServer() {
@@ -25,8 +26,7 @@ public class EmbeddedElasticsearchServer {
     public EmbeddedElasticsearchServer(String dataDirectory) {
 	this.dataDirectory = dataDirectory;
 
-	ImmutableSettings.Builder elasticsearchSettings = settingsBuilder()
-		.put("path.data", dataDirectory);
+	ImmutableSettings.Builder elasticsearchSettings = settingsBuilder().put("path.data", dataDirectory);
 
 	node = nodeBuilder()
 		.local(true)

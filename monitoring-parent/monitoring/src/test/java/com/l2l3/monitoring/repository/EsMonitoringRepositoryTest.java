@@ -33,8 +33,7 @@ public class EsMonitoringRepositoryTest {
     @Test
     public void save() {
 	target.save(createSampleModel());
-	verify(restTemplate, times(1)).postForObject(eq("http://dummy.com"), any(MonitoringData.class),
-		eq(MonitoringData.class));
+	verify(restTemplate, times(1)).postForObject(eq("http://dummy.com"), any(MonitoringData.class), eq(MonitoringData.class));
     }
 
 }

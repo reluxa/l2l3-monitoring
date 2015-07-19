@@ -7,6 +7,7 @@ import com.l2l3.monitoring.model.MonitoringData;
 public class EsMonitoringRepository implements MonitoringRepository {
 
     private final String elasticsearchClusterUrl;
+
     private final RestTemplate restTemplate;
 
     public EsMonitoringRepository(RestTemplate restTemplate, String elasticsearchClusterUrl) {

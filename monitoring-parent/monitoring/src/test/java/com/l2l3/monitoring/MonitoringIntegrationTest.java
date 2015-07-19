@@ -46,10 +46,7 @@ public class MonitoringIntegrationTest {
 
 	waitForAsyncOperation();
 
-	SearchResponse result = embeddedElasticsearchServer.getClient()
-		.prepareSearch()
-		.execute()
-		.actionGet();
+	SearchResponse result = embeddedElasticsearchServer.getClient().prepareSearch().execute().actionGet();
 
 	assertThat(result.getHits().hits().length, is(1));
 	assertThat(result.getHits().hits()[0].getSource().get("clazz"), is("java.lang.Object"));
