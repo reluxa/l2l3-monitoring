@@ -2,12 +2,14 @@ package com.l2l3.monitoring.config;
 
 import static com.google.common.collect.Lists.newArrayList;
 
+import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.AsyncConfigurerSupport;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,7 +20,7 @@ import com.l2l3.monitoring.service.MonitoringService;
 
 @Configuration
 @EnableAsync
-public class MonitoringConfiguration {
+public class MonitoringConfiguration extends AsyncConfigurerSupport {
 
     @Autowired
     private Environment environment;
@@ -42,6 +44,11 @@ public class MonitoringConfiguration {
 	RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
 	restTemplate.setMessageConverters(newArrayList(new MappingJackson2HttpMessageConverter()));
 	return restTemplate;
+    }
+
+    @Override
+    public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+	return new MonitoringAsyncUncaughtExceptionHandler();
     }
 
 }

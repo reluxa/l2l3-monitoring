@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.common.collect.Lists;
 import com.l2l3.monitoring.model.MonitoringData;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -27,13 +28,19 @@ public class EsMonitoringRepositoryTest {
 
     @Before
     public void init() throws Exception {
-	target = new EsMonitoringRepository(restTemplate, elasticsearchClusterUrl);
+        target = new EsMonitoringRepository(restTemplate, elasticsearchClusterUrl);
     }
 
     @Test
     public void save() {
-	target.save(createSampleModel());
-	verify(restTemplate, times(1)).postForObject(eq("http://dummy.com"), any(MonitoringData.class), eq(MonitoringData.class));
+        target.save(createSampleModel());
+        verify(restTemplate, times(1)).postForObject(eq("http://dummy.com"), any(MonitoringData.class), eq(MonitoringData.class));
+    }
+
+    @Test
+    public void saveDataList() {
+        target.save(Lists.newArrayList(createSampleModel()));
+        verify(restTemplate, times(1)).postForObject(eq("http://dummy.com"), any(MonitoringData.class), eq(MonitoringData.class));
     }
 
 }
