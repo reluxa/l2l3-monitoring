@@ -9,10 +9,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.l2l3.monitoring.repository.MonitoringRepository;
 import com.l2l3.monitoring.service.MonitoringService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = MonitoringConfiguration.class)
+@ContextConfiguration(classes = TestMonitoringConfiguration.class)
 public class MonitoringConfigurationTest {
 
     @Autowired
@@ -21,10 +22,14 @@ public class MonitoringConfigurationTest {
     @Autowired
     private MonitoringService monitoringService;
 
+    @Autowired
+    private MonitoringRepository monitoringRepository;
+
     @Test
     public void applicationContextIsReady() {
 	assertNotNull(applicationContext);
 	assertNotNull(monitoringService);
+	assertNotNull(monitoringRepository);
     }
 
 }

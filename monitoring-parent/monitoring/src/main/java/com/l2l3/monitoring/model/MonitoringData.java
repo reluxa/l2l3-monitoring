@@ -2,6 +2,7 @@ package com.l2l3.monitoring.model;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.Optional;
 
 import org.apache.commons.lang3.Validate;
@@ -17,7 +18,7 @@ public final class MonitoringData {
 
     public final String methodName;
 
-    public final ImmutableMap<String, Object> parameters;
+    public final Map<String, Object> parameters;
 
     public final Optional<Object> returnValue;
 
@@ -26,6 +27,16 @@ public final class MonitoringData {
     public final Duration executionTime;
 
     public final LocalDateTime timestamp;
+
+    private MonitoringData() {
+	this.clazz = null;
+	this.methodName = null;
+	this.parameters = null;
+	this.returnValue = null;
+	this.exception = null;
+	this.executionTime = null;
+	this.timestamp = null;
+    }
 
     private MonitoringData(Builder builder) {
 	this.clazz = builder.clazz;
